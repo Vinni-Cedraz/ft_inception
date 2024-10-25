@@ -10,7 +10,7 @@ build:
 down:
 	@docker-compose -f ./srcs/docker-compose.yml --env-file srcs/.env down
 
-re: fclean
+je: fclean
 	@make build
 
 clean: down
