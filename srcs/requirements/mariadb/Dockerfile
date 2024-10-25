@@ -1,4 +1,5 @@
 FROM alpine:3.19.4
+
 ARG DB_NAME \
     DB_USER \
     DB_PASS \
