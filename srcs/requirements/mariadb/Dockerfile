@@ -33,8 +33,6 @@ EXPOSE 3306
 COPY requirements/mariadb/conf/create_db.sh .
 RUN chmod +x create_db.sh && \
     chown mysql:mysql create_db.sh && \
-    su mysql -c "sh create_db.sh" && \
-    rm create_db.sh
 
 USER mysql
 
