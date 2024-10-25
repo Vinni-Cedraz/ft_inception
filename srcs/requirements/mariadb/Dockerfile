@@ -31,4 +31,3 @@ ENTRYPOINT [ "/usr/local/bin/mariadb.sh" ]
 
 #Command to launch mariadb and enable the database to listen globally - also can be put on mysqldump.cnf file
 CMD ["mysqld", "--bind-address=0.0.0.0"]
-
