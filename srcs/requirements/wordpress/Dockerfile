@@ -19,6 +19,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
     php${PHP_VERSION}-openssl \
     php${PHP_VERSION}-xml \
     php${PHP_VERSION}-zip \
+    php${PHP_VERSION}-phar \
     php${PHP_VERSION}-pecl-redis \
     mariadb-client \
     wget \
@@ -31,11 +32,6 @@ RUN apk update && apk upgrade && apk add --no-cache \
       /etc/php82/php-fpm.d/www.conf && \
     rm -f /var/cache/apk/*
 
-# Install WP-CLI
-RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
-    chmod +x wp-cli.phar && \
-    mv wp-cli.phar /usr/local/bin/wp
-
 WORKDIR /var/www
 
 # Copy WordPress files
@@ -43,6 +39,11 @@ RUN wget https://wordpress.org/latest.zip && \
     unzip latest.zip && \
     cp -rf wordpress/* . && \
     rm -rf wordpress latest.zip
+
+# Install WP-CLI
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
+    chmod +x wp-cli.phar && \
+    mv wp-cli.phar /usr/local/bin/wp
 
 # Copy configuration scripts
 COPY ./requirements/wordpress/conf/wp-config-create.sh .
