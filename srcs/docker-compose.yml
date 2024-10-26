@@ -28,8 +28,6 @@ services:
         DB_PASS: ${DB_PASS}
         DB_ROOT: ${DB_ROOT}
     container_name: mariadb
-    ports:
-      - "3306:3306"
     networks:
       - inception
     volumes:
@@ -64,13 +62,13 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: /home/${USER}/data/wordpress
+      device: /home/vcedraz-/data/wordpress
 
   db-volume:
     driver_opts:
       o: bind
       type: none
-      device: /home/${USER}/data/mariadb
+      device: /home/vcedraz-/data/mariadb
 
 networks:
     inception:
