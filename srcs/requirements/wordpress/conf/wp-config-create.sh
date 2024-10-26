@@ -10,7 +10,12 @@ define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
 define('FS_METHOD','direct');
 \$table_prefix = 'wp_';
-define( 'WP_DEBUG', false );
+
+// Debug settings
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG_DISPLAY', false );
+
 if ( ! defined( 'ABSPATH' ) ) {
 define( 'ABSPATH', __DIR__ . '/' );}
 define( 'WP_REDIS_HOST', 'redis' );
