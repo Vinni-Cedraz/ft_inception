@@ -47,6 +47,9 @@ services:
         DOMAIN_NAME: ${DOMAIN_NAME}
     container_name: wordpress
     environment:
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
       - DOMAIN_NAME=${DOMAIN_NAME}
     depends_on:
       - mariadb
