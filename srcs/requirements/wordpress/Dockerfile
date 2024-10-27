@@ -52,8 +52,8 @@ COPY ./requirements/wordpress/conf/wordpress-setup.sh .
 RUN chmod +x wp-config-create.sh wordpress-setup.sh && \
     sh wp-config-create.sh && \
     rm wp-config-create.sh && \
+	chown -R www-data:www-data /var/www/
 
-RUN chown -R www-data:www-data /var/www/
 USER www-data
 
 ENTRYPOINT ["sh", "wordpress-setup.sh"]
