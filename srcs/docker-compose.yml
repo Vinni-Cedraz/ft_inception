@@ -20,7 +20,7 @@ services:
         source: ./requirements/nginx/tools
         target: /etc/nginx/ssl/
       - type: bind
-        source: /home/${USER}/data/wordpress
+        source: /home/vcedraz-/data/wordpress
         target: /var/www/
     restart: always
 
