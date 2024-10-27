@@ -49,6 +49,8 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 COPY ./requirements/wordpress/conf/wp-config-create.sh .
 COPY ./requirements/wordpress/conf/wordpress-setup.sh .
 
+RUN addgroup -S www-data && adduser -S www-data -G www-data
+
 RUN chmod +x wp-config-create.sh wordpress-setup.sh && \
     sh wp-config-create.sh && \
     rm wp-config-create.sh && \
