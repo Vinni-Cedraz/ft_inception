@@ -31,7 +31,7 @@ services:
     networks:
       - inception
     volumes:
-      - db-volume:/var/lib/mysql
+      - ${VOLPATH}mariadb:/var/lib/mysql
     restart: always
 
   wordpress:
@@ -54,21 +54,8 @@ services:
     networks:
       - inception
     volumes:
-      - wp-volume:/var/www/
+      - ${VOLPATH}wordpress:/var/www/
     restart: always
-
-volumes:
-  wp-volume:
-    driver_opts:
-      o: bind
-      type: none
-      device: /home/vcedraz-/data/wordpress
-
-  db-volume:
-    driver_opts:
-      o: bind
-      type: none
-      device: /home/vcedraz-/data/mariadb
 
 networks:
     inception:
