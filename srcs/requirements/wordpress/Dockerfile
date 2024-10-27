@@ -54,6 +54,4 @@ RUN chmod +x wp-config-create.sh wordpress-setup.sh && \
     rm wp-config-create.sh && \
 	chown -R nobody:nobody /var/www/
 
-USER www-data
-
 ENTRYPOINT ["sh", "wordpress-setup.sh"]
