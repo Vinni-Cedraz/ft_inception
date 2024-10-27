@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  nginx:
+nginx:
     build:
       context: .
       dockerfile: requirements/nginx/Dockerfile
@@ -13,9 +13,15 @@ services:
     networks:
       - inception
     volumes:
-      - ./requirements/nginx/conf:/etc/nginx/http.d/
-      - ./requirements/nginx/tools:/etc/nginx/ssl/
-      - ${VOLPATH}wordpress:/var/www/
+      - type: bind
+        source: ./requirements/nginx/conf
+        target: /etc/nginx/http.d/
+      - type: bind
+        source: ./requirements/nginx/tools
+        target: /etc/nginx/ssl/
+      - type: bind
+        source: /home/${USER}/data/wordpress
+        target: /var/www/
     restart: always
 
   mariadb:
@@ -32,7 +38,9 @@ services:
       - inception
     restart: always
     volumes:
-      - ${VOLPATH}mariadb:/var/lib/mysql
+      - type: bind
+      - source: ${VOLPATH}mariadb
+      - target: /var/lib/mysql
 
   wordpress:
     build:
@@ -55,7 +63,9 @@ services:
       - inception
     restart: always
     volumes:
-      - ${VOLPATH}wordpress:/var/www/
+      - type: bind
+      - source: ${VOLPATH}wordpress
+      - target: /var/www/
 
 networks:
     inception:
