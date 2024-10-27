@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-nginx:
+  nginx:
     build:
       context: .
       dockerfile: requirements/nginx/Dockerfile
@@ -39,8 +39,8 @@ nginx:
     restart: always
     volumes:
       - type: bind
-      - source: ${VOLPATH}mariadb
-      - target: /var/lib/mysql
+        source: ${VOLPATH}mariadb
+        target: /var/lib/mysql
 
   wordpress:
     build:
@@ -64,9 +64,9 @@ nginx:
     restart: always
     volumes:
       - type: bind
-      - source: ${VOLPATH}wordpress
-      - target: /var/www/
+        source: ${VOLPATH}wordpress
+        target: /var/www/
 
 networks:
-    inception:
-        driver: bridge
+  inception:
+    driver: bridge
