@@ -13,9 +13,9 @@ services:
     networks:
       - inception
     volumes:
-      - ./requirements/nginx/conf/:/etc/nginx/http.d/
+      - ./requirements/nginx/conf:/etc/nginx/http.d/
       - ./requirements/nginx/tools:/etc/nginx/ssl/
-      - ${VOLPATH}nginx:/var/www/
+      - ${VOLPATH}wordpress:/var/www/
     restart: always
 
   mariadb:
@@ -30,9 +30,9 @@ services:
     container_name: mariadb
     networks:
       - inception
+    restart: always
     volumes:
       - ${VOLPATH}mariadb:/var/lib/mysql
-    restart: always
 
   wordpress:
     build:
@@ -53,9 +53,9 @@ services:
       - mariadb
     networks:
       - inception
+    restart: always
     volumes:
       - ${VOLPATH}wordpress:/var/www/
-    restart: always
 
 networks:
     inception:
