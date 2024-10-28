@@ -1,5 +1,6 @@
 services:
   nginx:
+    image: nginx
     build:
       context: .
       dockerfile: requirements/nginx/Dockerfile
@@ -17,6 +18,7 @@ services:
     restart: always
 
   mariadb:
+    image: mariadb 
     build:
       context: .
       dockerfile: requirements/mariadb/Dockerfile
@@ -33,6 +35,7 @@ services:
     restart: always
 
   wordpress:
+    image: wordpress 
     build:
       context: .
       dockerfile: requirements/wordpress/Dockerfile
