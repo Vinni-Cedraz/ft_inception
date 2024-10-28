@@ -1,6 +1,6 @@
 FROM alpine:3.19.4
 
-ARG PHP_VERSION=82 \
+ARG PHP_VERSION=php82 \
     DB_NAME \
     DB_USER \
     DB_PASS \
@@ -11,20 +11,20 @@ ARG PHP_VERSION=82 \
 	USER2_PASS
 
 RUN apk update && apk upgrade && apk add --no-cache \
-    php${PHP_VERSION} \
-    php${PHP_VERSION}-fpm \
-    php${PHP_VERSION}-mysqli \
-    php${PHP_VERSION}-json \
-    php${PHP_VERSION}-curl \
-    php${PHP_VERSION}-dom \
-    php${PHP_VERSION}-exif \
-    php${PHP_VERSION}-fileinfo \
-    php${PHP_VERSION}-mbstring \
-    php${PHP_VERSION}-openssl \
-    php${PHP_VERSION}-xml \
-    php${PHP_VERSION}-zip \
-    php${PHP_VERSION}-phar \
-    php${PHP_VERSION}-pecl-redis \
+	${PHP_VERSION} \
+    ${PHP_VERSION}-fpm \
+    ${PHP_VERSION}-mysqli \
+    ${PHP_VERSION}-json \
+    ${PHP_VERSION}-curl \
+    ${PHP_VERSION}-dom \
+    ${PHP_VERSION}-exif \
+    ${PHP_VERSION}-fileinfo \
+    ${PHP_VERSION}-mbstring \
+    ${PHP_VERSION}-openssl \
+    ${PHP_VERSION}-xml \
+    ${PHP_VERSION}-zip \
+    ${PHP_VERSION}-phar \
+    ${PHP_VERSION}-pecl-redis \
     mariadb-client \
     wget \
     unzip && \
