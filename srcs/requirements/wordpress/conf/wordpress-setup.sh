@@ -29,8 +29,8 @@ if [ $WP_INSTALLED -ne 0 ]; then
         --path=/var/www \
         --url="https://${DOMAIN_NAME}" \
         --title="Inception WordPress Website" \
-        --admin_user="Turangalila" \
-        --admin_password="0d8jf23dimsai1" \
+        --admin_user=${ADMIN} \
+        --admin_password=${ADMIN_PASS} \
         --admin_email="mail@example.com" \
         --skip-email \
         --allow-root \
@@ -51,7 +51,7 @@ else
 fi
 
 echo "[WORDPRESS SETUP] Creating a second user..." >&2
-wp user create seconduser "seconduser@example.com" --role=editor --user_pass=securepassword --path=/var/www --allow-root
+wp user create ${USER2} "seconduser@example.com" --role=editor --user_pass=${USER2_PASS}--path=/var/www --allow-root
 CREATE_USER_RESULT=$?
 if [ $CREATE_USER_RESULT -ne 0 ]; then
     echo "[WORDPRESS SETUP] ERROR: Failed to create second user with code ${CREATE_USER_RESULT}" >&2

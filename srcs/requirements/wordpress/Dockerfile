@@ -4,7 +4,11 @@ ARG PHP_VERSION=82 \
     DB_NAME \
     DB_USER \
     DB_PASS \
-    DOMAIN_NAME
+    DOMAIN_NAME \
+	ADMIN \
+	ADMIN_PASS \
+	USER2 \
+	USER2_PASS
 
 RUN apk update && apk upgrade && apk add --no-cache \
     php${PHP_VERSION} \
