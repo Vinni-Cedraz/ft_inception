@@ -50,5 +50,14 @@ else
     echo "[WORDPRESS SETUP] WordPress is already installed" >&2
 fi
 
+echo "[WORDPRESS SETUP] Creating a second user..." >&2
+wp user create seconduser "seconduser@example.com" --role=editor --user_pass=securepassword --path=/var/www --allow-root
+CREATE_USER_RESULT=$?
+if [ $CREATE_USER_RESULT -ne 0 ]; then
+    echo "[WORDPRESS SETUP] ERROR: Failed to create second user with code ${CREATE_USER_RESULT}" >&2
+else
+    echo "[WORDPRESS SETUP] Second user created successfully!" >&2
+fi
+
 echo "[WORDPRESS SETUP] Starting PHP-FPM..." >&2
 exec /usr/sbin/php-fpm82 -F
