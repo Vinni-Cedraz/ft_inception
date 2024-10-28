@@ -1,5 +1,10 @@
 FROM alpine:3.19.4
 
+ARG DB_NAME \
+    DB_USER \
+    DB_PASS \
+    DB_ROOT
+
 RUN apk update && apk add --no-cache mariadb mariadb-client # --no-cache is reduces image size and ensures fresh packages.
 
 RUN mkdir -p /var/run/mysqld && \
