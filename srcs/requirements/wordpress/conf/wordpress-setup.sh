@@ -28,10 +28,10 @@ if [ $WP_INSTALLED -ne 0 ]; then
     wp core install \
         --path=/var/www \
         --url="https://${DOMAIN_NAME}" \
-        --title="WordPress Site" \
-        --admin_user="admin" \
-        --admin_password="admin123" \
-        --admin_email="admin@example.com" \
+        --title="Inception WordPress Website" \
+        --admin_user="Turangalila" \
+        --admin_password="0d8jf23dimsai1" \
+        --admin_email="mail@example.com" \
         --skip-email \
         --allow-root \
         --debug
