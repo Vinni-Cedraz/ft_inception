@@ -9,4 +9,6 @@ if [ ! -d "/home/vcedraz-/data" ]; then
 		chown -R $(whoami):$(whoami) /home/vcedraz-/data/
 fi
 
-wget https://gist.githubusercontent.com/Vinni-Cedraz/a0aaf45caa14cc8099c8fa9b2e69477f/raw/f646836e4e6b6d91ec89230ae562e448d7a67e4b/.env
+if [ ! -f ".env" ]; then
+  wget -O .env https://gist.githubusercontent.com/Vinni-Cedraz/a0aaf45caa14cc8099c8fa9b2e69477f/raw/f646836e4e6b6d91ec89230ae562e448d7a67e4b/.env
+fi
