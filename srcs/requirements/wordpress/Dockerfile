@@ -24,15 +24,10 @@ RUN apk update && apk upgrade && apk add --no-cache \
     ${PHP_VERSION}-xml \
     ${PHP_VERSION}-zip \
     ${PHP_VERSION}-phar \
-    ${PHP_VERSION}-pecl-redis \
     mariadb-client \
     wget \
     unzip && \
     sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" \
-      /etc/php82/php-fpm.d/www.conf && \
-    sed -i "s|;listen.owner = nobody|listen.owner = nobody|g" \
-      /etc/php82/php-fpm.d/www.conf && \
-    sed -i "s|;listen.group = nobody|listen.group = nobody|g" \
       /etc/php82/php-fpm.d/www.conf && \
     rm -f /var/cache/apk/*
 
