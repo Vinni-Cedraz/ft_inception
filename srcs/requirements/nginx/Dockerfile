@@ -2,6 +2,7 @@ FROM alpine:3.19.4
 RUN	apk update && apk upgrade && apk add --no-cache nginx openssl
 EXPOSE 443
 WORKDIR /etc/nginx
+
 RUN if [ ! -f certificate.pem ]; then \
     openssl req \
     -x509 \
