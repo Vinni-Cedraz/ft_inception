@@ -28,9 +28,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
     wget \
     unzip && \
     sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" \
-	  /etc/php82/php-fpm.d/www.conf && \ # allows php-fpm to listen on all
-	  # network interfaces instead of just the loopback interface so that it can
-	  # receive requests from other containers.
+	  /etc/php82/php-fpm.d/www.conf && \
     rm -f /var/cache/apk/*
 
 WORKDIR /var/www
