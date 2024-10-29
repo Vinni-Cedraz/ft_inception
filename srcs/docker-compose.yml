@@ -1,5 +1,7 @@
 services:
   nginx:
+    env_file:
+      - .env
     image: nginx
     build:
       context: .
@@ -17,6 +19,8 @@ services:
     restart: always
 
   mariadb:
+    env_file:
+      - .env
     image: mariadb 
     build:
       context: .
@@ -34,6 +38,8 @@ services:
     restart: always
 
   wordpress:
+    env_file:
+      - .env
     image: wordpress 
     build:
       context: .
