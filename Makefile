@@ -1,15 +1,15 @@
 name = inception
 
 all:
-	@sudo bash srcs/requirements/wordpress/tools/make_dir.sh
-	@docker-compose -f ./srcs/docker-compose.yml --env-file srcs/requirements/wordpress/tools/.env up -d
+	@sudo bash srcs/requirements/tools/make_dir.sh
+	@docker-compose -f ./srcs/docker-compose.yml --env-file srcs/requirements/tools/.env up -d
 
 build:
 	@sudo bash srcs/requirements/wordpress/tools/make_dir.sh
-	@docker-compose -f ./srcs/docker-compose.yml --env-file srcs/requirements/wordpress/tools/.env up -d --build
+	@docker-compose -f ./srcs/docker-compose.yml --env-file srcs/requirements/tools/.env up -d --build
 
 down:
-	@docker-compose -f ./srcs/docker-compose.yml --env-file srcs/requirements/wordpress/tools/.env down
+	@docker-compose -f ./srcs/docker-compose.yml --env-file srcs/requirements/tools/.env down
 
 re: down
 	@make build
