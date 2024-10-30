@@ -1,11 +1,11 @@
 name = inception
 ENV = /home/user42/ft_inception/srcs/.env
 
-all:
+all: ${ENV}
 	@sudo bash srcs/requirements/tools/make_dir.sh
 	@docker-compose -f ./srcs/docker-compose.yml up -d
 
-build:
+build: ${ENV}
 	@sudo bash srcs/requirements/tools/make_dir.sh
 	@docker-compose -f ./srcs/docker-compose.yml up -d
 
