@@ -5,7 +5,7 @@ all:
 	@docker-compose -f ./srcs/docker-compose.yml up -d
 
 build:
-	@sudo bash srcs/requirements/wordpress/tools/make_dir.sh
+	@sudo bash srcs/requirements/tools/make_dir.sh
 	@docker-compose -f ./srcs/docker-compose.yml up -d --build
 
 down:
