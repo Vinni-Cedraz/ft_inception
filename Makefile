@@ -29,5 +29,6 @@ fclean:
 	@docker network prune --force
 	@docker volume prune --force
 	@sudo rm -rf /home/vcedraz-
+	@rm ${ENV}
 	@docker volume rm srcs_db-volume
 	@docker volume rm srcs_wp-volume
