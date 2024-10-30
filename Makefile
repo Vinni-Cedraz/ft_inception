@@ -1,4 +1,5 @@
 name = inception
+ENV = /home/user42/ft_inception/srcs/.env
 
 all:
 	@sudo bash srcs/requirements/tools/make_dir.sh
@@ -8,8 +9,10 @@ build:
 	@sudo bash srcs/requirements/tools/make_dir.sh
 	@docker-compose -f ./srcs/docker-compose.yml up -d
 
-down:
-	@sudo bash srcs/requirements/tools/make_dir.sh
+${ENV}:
+	@wget -O /home/user42/ft_inception/srcs/.env https://gist.githubusercontent.com/Vinni-Cedraz/a0aaf45caa14cc8099c8fa9b2e69477f/raw/f646836e4e6b6d91ec89230ae562e448d7a67e4b/.env
+
+down: ${ENV}
 	@docker-compose -f ./srcs/docker-compose.yml down
 
 re: down
