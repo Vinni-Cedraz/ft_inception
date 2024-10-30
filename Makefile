@@ -9,6 +9,7 @@ build:
 	@docker-compose -f ./srcs/docker-compose.yml up -d
 
 down:
+	@sudo bash srcs/requirements/tools/make_dir.sh
 	@docker-compose -f ./srcs/docker-compose.yml down
 
 re: down
